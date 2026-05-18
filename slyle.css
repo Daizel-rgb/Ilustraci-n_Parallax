@@ -110,7 +110,7 @@ html {
 /* Capas de imagen incrustadas (base64) */
 .layer0 {
     background-image: url('img/Título.png');
-    width: 280px;
+    width: 300px;
     left: 75px;
     top: 55px;
 }
