@@ -1,0 +1,149 @@
+/* Estilos generales */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0d0f;
+    /* Fondo oscuro para resaltar la escena */
+    perspective: 2000px;
+    /* Crea el espacio 3D para el efecto de inclinación */
+}
+
+/* Contenedor principal de paralaje */
+.parallax-scene {
+    position: relative;
+    width: 120vmin;
+    /* Escala de tamaño basada en la ventana gráfica más pequeña */
+    height: 100vmin;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    /* Efecto de tarjeta elevada */
+    overflow: hidden;
+    transform-style: preserve-3d;
+    /* Permite que los hijos hereden el espacio 3D */
+    transition: transform 0.1s ease-out;
+    /* Suaviza el efecto de inclinación */
+    background-color: #0d0d0f;
+    /* Fondo base interno */
+}
+
+/* Estilo común para todas las capas de imagen */
+.layer {
+    position: absolute;
+    width: 112%;
+    height: 112%;
+    top: -30px;
+    left: -40px;
+    object-fit: contain;
+    /* Mantiene la proporción de la imagen y la centra */
+    pointer-events: none;
+    /* Las imágenes no interfieren con el ratón */
+    transition: transform 0.1s ease-out;
+    /* Suaviza el movimiento de paralaje */
+}
+
+/* Asignación de z-index y posición inicial para cada capa */
+.layer0 {
+    z-index: 80;
+}
+.layer1 {
+    z-index: 70;
+}
+
+/* Primer plano (Pradera y chica) */
+.layer2 {
+    z-index: 60;
+}
+
+/* Arboles de la pradera (Pradera y chica) */
+.layer3 {
+    z-index: 50;
+}
+
+/* Ciudad  */
+.layer4 {
+    z-index: 40;
+}
+
+/* Colinas */
+.layer5 {
+    z-index: 30;
+}
+
+/* Nubes */
+.layer6 {
+    z-index: 20;
+}
+
+/* Montañas y anillo planetario */
+.layer7 {
+    z-index: 10;
+}
+
+/* Fondo de cielo */
+
+/* Superposición de iluminación sutil al pasar el ratón */
+.parallax-scene::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+}
+
+.parallax-scene:hover::after {
+    opacity: 1;
+}
+
+/* Capas de imagen incrustadas (base64) */
+.layer0 {
+    background-image: url('img/Título.png');
+    width: 280px;
+    left: 75px;
+    top: 55px;
+}
+.layer1 {
+    background-image: url('img/1.webp');
+}
+
+.layer2 {
+    background-image: url('img/2.webp');
+}
+
+.layer3 {
+    background-image: url('img/3.webp');
+}
+
+.layer4 {
+    background-image: url('img/4.webp');
+}
+
+.layer5 {
+    background-image: url('img/5.webp');
+}
+
+.layer6 {
+    background-image: url('img/6.webp');
+}
+
+.layer7 {
+    background-image: url('img/7.webp');
+}
+
+.layer-bg {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
