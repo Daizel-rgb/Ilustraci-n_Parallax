@@ -41,3 +41,25 @@ scene.addEventListener('mouseleave', () => {
         layer.style.transform = 'translateX(0px) translateY(0px)';
     });
 });
+
+window.addEventListener("load", function() {
+  const progressText = document.getElementById("load-percentage");
+  const progressBar = document.querySelector(".loader-progress");
+  const loaderWrapper = document.getElementById("loader-wrapper");
+  
+  let width = 0;
+  
+  // Simula el progreso (ajusta el intervalo para que coincida con tu carga real)
+  const interval = setInterval(function() {
+    if (width >= 100) {
+      clearInterval(interval);
+      // Oculta la pantalla de carga cuando llega al 100%
+      loaderWrapper.style.opacity = "0";
+      setTimeout(() => loaderWrapper.style.display = "none", 500);
+    } else {
+      width++;
+      progressBar.style.width = width + "%";
+      progressText.textContent = width + "%";
+    }
+  }, 20); // Velocidad: avanza 1% cada 20 milisegundos
+});
